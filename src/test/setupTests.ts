@@ -8,15 +8,14 @@ import { server } from "./mock-server.js";
 
 beforeAll(() =>
   server.listen({
-    // Log a message whenever a test tries to call a real API, to suggest mocking it
-    onUnhandledRequest(req) {
+    onUnhandledRequest(request) {
       console.warn(
         "You are directly calling an API in your test. Consider mocking the request! The unhandled call is %s %s",
-        req.method,
-        req.url.href
+        request.method,
+        request.url,
       );
     },
-  })
+  }),
 );
 // if you need to add a handler after calling setupServer for some specific test
 // this will remove that handler for the rest of them
