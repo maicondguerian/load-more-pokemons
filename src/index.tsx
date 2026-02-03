@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { PokemonList } from "./Pages/PokemonList/PokemonList";
+import { PokemonList } from "./Pages";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
